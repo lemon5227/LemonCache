@@ -3,8 +3,6 @@ package lru
 import (
 	"reflect"
 	"testing"
-
-	"golang.org/x/tools/go/expect"
 )
 
 type String string
