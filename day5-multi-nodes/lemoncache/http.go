@@ -89,7 +89,6 @@ func (p *HTTPPool) Set(peers...string) {
 func (p *HTTPPool) PickPeer(key string) (peer PeerGetter, ok bool) {
 	p.mu.Lock()
 	defer p.mu.Unlock()
-
 	if peer := p.peers.Get(key); peer != "" && peer != p.self {
 		p.Log("Pick peer %s",peer)
 		return p.httpGetters[peer], true
@@ -97,6 +96,7 @@ func (p *HTTPPool) PickPeer(key string) (peer PeerGetter, ok bool) {
 	return nil, false
 }
 
+var _ PeerPicker = (*HTTPPool)(nil)
 
 
 //创建具体的 HTTP 客户端类 httpGetter
@@ -133,5 +133,5 @@ func (h *HTTPGetter) Get(group string,key string) ([]byte,error) {
 	return bytes,nil
 }
 
+var _ PeerGetter = (*HTTPGetter)(nil)
 
-var _ PeerPicker = (*HTTPPool)(nil)

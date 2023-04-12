@@ -4,7 +4,6 @@ import (
 	"LemonCache"
 	"flag"
 	"fmt"
-	"geecache"
 	"log"
 	"net/http"
 )
@@ -14,6 +13,7 @@ var db = map[string]string{
 	"张三":  "789",
 	"李四": "456",
 	"王五":  "123",
+	"Tom": "741",
 }
 
 func createGroup() *LemonCache.Group {

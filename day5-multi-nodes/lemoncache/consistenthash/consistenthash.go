@@ -59,6 +59,4 @@ func (m *Map) Get(key string) string {
 		return m.keys[i] >= hash
 	}) 
 	return m.hashMap[m.keys[idx%len(m.keys)]]
-
-
 }

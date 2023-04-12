@@ -92,6 +92,7 @@ func (g *Group) load(key string) (value ByteView, err error) {
 			log.Println("[LemonCache] Failed to get from peer",err)
 		}
 	}
+
 	return g.getLocally(key)
 }
 
